@@ -1,0 +1,11 @@
+maven                vs.                nodepm 
+
+pom.xml                      package.json
+
+meta information            meta information
+dependencies                dependencies
+lifecycles                  scripts
+build/pre-build/
+post-build
+
+Package-lock: you can see specifically the version in which the package was installed
