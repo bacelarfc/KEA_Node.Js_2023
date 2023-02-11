@@ -1,0 +1,12 @@
+Anatomy of an URL
+
+protocol  domain     endpoint   path variable  
+https://google.com/kickdinosaur/:id?size=1200
+                                query string/path
+                                key sing(=) value
+
+The path variable is required. The query string is optional, you do not need it to reach an endpoint. 
+
+How many ways can you send data with a GET? 2. Path variables and query strings.
+
+How can a client send data? With a body. 

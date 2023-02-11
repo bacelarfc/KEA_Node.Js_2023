@@ -2,11 +2,13 @@
 //instead we can use nodemon that automatically refreshes the code during development 
 //run command nodemon app.js
 
-//const express = require("express");
+const express = require("express");
 //console.log(express);
 
 //shorter version from the one above
-const app = require("express")();
+//const app = require("express");
+const app = express();
+app.use(express.json())
 
 //http dev port
 app.listen(8080);
@@ -48,4 +50,22 @@ app.get("/about", (req, res) => {
     );
 });
 
-console.log("blabla")
+//What is called the way to send data below? Query String. 
+//bat?adjective=spooky
+//always a json*
+app.get("/bat", (req, res) => {
+    console.log(req.query);
+    res.send({message: `The bat is ${req.query.adjective}.`});
+});
+
+// bottle/large
+//unlike {} spring, we use : 
+
+app.get("/bottle/:bottleSize", (req, res) => {
+    res.send({bottleSize: req.params.bottleSize})
+});
+
+app.post("/bag", (req, res) => {
+    console.log(req.body)
+    res.send({message: req.body})
+} )
