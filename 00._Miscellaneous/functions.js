@@ -42,4 +42,5 @@ const subtract = (name) => `${name} is subtracting`;
 
 //console.log(genericActionPerformer(walk, "Nicolas"));
 
+//todo
 console.log(genericActionPerformer((name) => `${name} is walking`, "Andrea"));
