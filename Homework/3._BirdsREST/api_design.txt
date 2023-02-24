@@ -1,0 +1,5 @@
+GET 
+GET
+POST
+PATCH /birds/{id}
+replaces elements of the resources, put replace the whole resouce 

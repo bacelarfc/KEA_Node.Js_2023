@@ -41,6 +41,8 @@ app.put("/birds/:id", (req, res) => {
     res.send({ bird: updatedBird });
 });
 
+//patch
+
 //delete by id
 app.delete("/birds/:id", (req, res) => {
     const id = Number(req.params.id);
