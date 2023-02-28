@@ -14,6 +14,5 @@ app.listen(PORT, (error) => {
 });
 
 app.get('/countdown', (req, res) => {
-  res.sendFile(__dirname + '/public/dates/countdown.html');
+  res.sendFile(__dirname + '/public/countdown.html');
 });
-
