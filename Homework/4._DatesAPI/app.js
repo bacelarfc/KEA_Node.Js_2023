@@ -13,8 +13,6 @@ app.listen(PORT, (error) => {
     console.log("Server is running on port", PORT);
 });
 
-app.get("/", (req, res) => res.send("Main page")); 
-
-app.get('/countdown', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/countdown.html');
 });
