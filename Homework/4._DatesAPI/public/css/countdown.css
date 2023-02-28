@@ -24,3 +24,7 @@ border:#3b352f;
 #startButton:hover {
   background-color: #f5f5f9 !important;
 }
+
+#countdown {
+  padding-top: 15px;
+}

@@ -1,6 +1,7 @@
 function startCountdown() {
   const birthdayInput = document.getElementById('birthday');
   const countdownDiv = document.getElementById('countdown');
+  const secoundCountdownDiv = document.getElementById('second-countdown');
   const minDate = new Date(birthdayInput.min);
   const maxDate = new Date(birthdayInput.max);
   
@@ -22,8 +23,6 @@ function startCountdown() {
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
-  
-  countdownDiv.innerHTML = `Days left until your birthday: <span id="days">${days}</span><br> You are turning ${age} years old`;
 
  // Use intervals to update the countdown every second
  //needs further testing
@@ -40,6 +39,8 @@ function startCountdown() {
   const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-  countdownDiv.innerHTML = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds} </span><br>&#127881`;
+  countdownDiv.innerHTML = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`;
 }, 1000);
+
+secoundCountdownDiv.innerHTML = `You are turning ${age} years old! &#127881`;
 }
