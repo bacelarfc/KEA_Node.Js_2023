@@ -39,8 +39,8 @@ function startCountdown() {
   const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 
+  secoundCountdownDiv.innerHTML = `You are turning ${age} years old! &#127881`;
+
   countdownDiv.innerHTML = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`;
 }, 1000);
-
-secoundCountdownDiv.innerHTML = `You are turning ${age} years old! &#127881`;
 }
