@@ -68,4 +68,35 @@ app.get("/bottle/:bottleSize", (req, res) => {
 app.post("/bag", (req, res) => {
     console.log(req.body)
     res.send({message: req.body})
-} )
+});
+
+console.log(new Date());
+console.log(Date());
+console.log(Date.now());
+
+app.get("/time", (req, res) => {
+    res.send({Date: new Date()})
+})
+
+app.get("/time/time", (req, res) => {
+    res.send({
+        timeUTC: new Date(),
+        timeLocal: Date(),
+        unixTimestamp: Date.now()
+    });
+});
+
+console.log(new Date().toLocaleDateString("da-dk"), {weekday: new Date().getDay()});
+
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//I created outside, so i dont have to create it every time
+const months = ["Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+app.get("/time/day", (req, res) => {
+    res.send({data: days [new Date().getDay()]});
+})
+
+
+app.get("/time/month", (req, res) => {
+    res.send({data: months [new Date().getMonth()]});
+})

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Birthday Countdown</title>
+    <link rel="stylesheet" href="./countdown.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container center">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="mb-3">Birthday Countdown</h2>
+          </div>
+          <div class="col-md-6">
+            <form>
+              <div class="form-group">
+                <label for="birthday">Enter your birthday:</label>
+                <input type="date" class="form-control" id="birthday" name="birthday" min="1930-01-01" max="2010-12-31">
+              </div>
+              <button id="startButton" type="button" class="btn btn-primary" onclick="startCountdown()">Start Countdown</button>
+              <div id="countdown"></div>
+            </form>
+          </div>
+        </div>
+    </div>
+          
+    <script src="./countdown.js"></script>
+  </body>
+</html>
