@@ -21,10 +21,10 @@ function startCountdown() {
   if (nextBirthday < now) {
     nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
   }
-  const diff = nextBirthday.getTime() - now.getTime();
+  const timeDifference = nextBirthday.getTime() - now.getTime();
   const age = now.getFullYear() - birthday.getFullYear();
   
-  const seconds = Math.floor(diff / 1000);
+  const seconds = Math.floor(timeDifference / 1000);
   const minutes = Math.floor(seconds / 60);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
@@ -37,12 +37,11 @@ function startCountdown() {
     if (nextBirthday < now) {
       nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
     }
-    const diff = nextBirthday.getTime() - now.getTime();
     
-    const seconds = Math.floor(diff / 1000) % 60;
-    const minutes = Math.floor(diff / (1000 * 60)) % 60;
-    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const seconds = Math.floor(timeDifference / 1000) % 60;
+    const minutes = Math.floor(timeDifference / (1000 * 60)) % 60;
+    const hours = Math.floor(timeDifference / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
     countdownDiv.innerHTML = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`;
   }, 1000);
