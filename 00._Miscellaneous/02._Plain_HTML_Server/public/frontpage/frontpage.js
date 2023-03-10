@@ -1,1 +1,5 @@
-console.log("Thank you for visiting");
+//client side redirection 
+setTimeout(() => { 
+    window.location="/guards" 
+}, 3000);
+
