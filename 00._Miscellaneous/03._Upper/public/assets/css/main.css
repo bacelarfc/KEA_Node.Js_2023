@@ -1,0 +1,16 @@
+#logo {
+    max-width: 5em;
+}
+
+main {
+    /* min-height: calc(100vh - 55vh); */
+    /* min-height: 100vh; */
+    flex: 1
+}
+
+body {
+    background-color: peachpuff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
