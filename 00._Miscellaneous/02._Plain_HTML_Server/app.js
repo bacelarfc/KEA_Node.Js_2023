@@ -33,7 +33,7 @@ app.get("/tanks", (req, res) => {
 });
 
 app.get("/api/tanks", (req, res) => {
-    res.send({ data: tanks });
+    res.send({ data: getTanks });
 });
 
 app.get("/visitors", (req, res) => {
@@ -44,7 +44,6 @@ app.get("/api/visitors", (req, res) => {
     res.send({data: visitorsCount})
 });
 
-
 app.put("/api/visitors", (req, res) => {
     res.send({data: ++visitorsCount})
 });
@@ -52,6 +51,15 @@ app.put("/api/visitors", (req, res) => {
 //Serve a page called tank museum guards
 app.get("/museum/guards", (req, res) => {
     res.sendFile(__dirname + "/public/museum/guards.html");
+});
+
+//server side redirection 
+app.get("/api/guards", (req, res) => {
+   if(req.query.passport === "theskyisblue") {
+    //return rather than else
+    return res.redirect("/api/tanks");
+}
+   res.send({message: "You are not allowed to see the tanks. Give us the secret in the query string with the key being passport"})
 });
 
 
