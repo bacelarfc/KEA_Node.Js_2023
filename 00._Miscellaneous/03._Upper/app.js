@@ -4,7 +4,8 @@ const app = express();
 app.use(express.static("public"));
 
 //you must refer to the file extension in this case (.js)
-//import jokes from "./util/jokes.js"
+import jokes from "./util/jokes.js"
+console.log(await jokes.getJoke())
 
 import path from "path";
 
