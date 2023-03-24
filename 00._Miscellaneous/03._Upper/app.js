@@ -1,32 +1,41 @@
 import express from "express";
 const app = express();
 
-app.use(express.static("public"));
-
-//you must refer to the file extension in this case (.js)
-import jokes from "./util/jokes.js"
-console.log(await jokes.getJoke())
-
 import path from "path";
 
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/pages/frontpage/frontpage.html"))
-})
+app.use(express.static("public"));
 
-app.get("/jokes", (req, res) => {
-    res.sendFile(path.resolve("public/pages/jokes/jokes.html"))
-})
+import templateEngine from "./util/templateEngine.js";
 
-
-app.get("/IRLQuests", (req, res) => {
-    res.sendFile(path.resolve("public/pages/IRLQuests/IRLQuests.html"))
+const frontpage = templateEngine.readPage("./public/pages/frontpage/frontpage.html");
+const frontpagePage = templateEngine.renderPage(frontpage, {
+    tabTitle: "Upper | Welcome"
 });
 
-const PORT = 8080;
+const IRLQuests = templateEngine.readPage("./public/pages/IRLQuests/IRLQuests.html");
+const IRLQuestsPage = templateEngine.renderPage(IRLQuests, {
+    tabTitle: "Upper | IRLQuests"
+});
+
+
+app.get("/", (req, res) => {
+    res.send(frontpagePage);
+});
+
+app.get("/IRLQuests", (req, res) => {
+    res.send(IRLQuestsPage);
+});
+
+app.get("/jokes", async (req, res) => {
+    const jokesPage = await templateEngine.renderJokePage();
+    res.send(jokesPage);    
+});
+
+//I will use the enviroment variable defined port, or a callback port
+const PORT = Number(process.env.PORT)|| 8080;
 app.listen(PORT, (error) => {
-    if(error)
-    {
+    if (error) {
         console.log(error);
     }
-    console.log("Server is running on port", PORT)
+    console.log("Server running on port", PORT);
 });

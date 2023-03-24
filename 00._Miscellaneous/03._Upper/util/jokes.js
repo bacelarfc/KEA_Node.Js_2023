@@ -29,8 +29,6 @@ if(score < 0) {
 
 //console.log(sentiment.analyze("Node is shit"));
 
-console.log(await getJoke())
- getJoke();
+export default getJoke;
 
-export default { getJoke };
 
